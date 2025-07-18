@@ -12,7 +12,7 @@ A role-based Healthcare CRM built with Laravel 11, AdminLTE, Laravel Breeze, and
 - Auth with Laravel Breeze + AdminLTE UI
 - Password reset via Mailtrap email
 - API endpoints (protected with Laravel Sanctum)
-- Azure deployment ready (with guide in README)
+- Azure deployment ready (with guide in README) -- Incomplete
 
 ---
 
