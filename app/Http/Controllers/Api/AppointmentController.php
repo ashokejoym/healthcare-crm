@@ -105,7 +105,7 @@ if ($validator->fails()) {
         return response()->json(['error' => 'Unauthorized'], 403);
     }
 
-    public function update(Request $request, $id)
+ public function update(Request $request, $id)
 {
     $appointment = Appointment::findOrFail($id);
     $user = Auth::user();
@@ -118,20 +118,27 @@ if ($validator->fails()) {
         return response()->json(['error' => 'Unauthorized'], 403);
     }
 
-    // Validate request
-    $data = $request->validate([
-        'appointment_date' => 'nullable|date|after_or_equal:today',
-        'appointment_time' => 'nullable|date_format:H:i',
-        'status' => 'nullable|in:Scheduled,Confirmed,Completed,Cancelled,No-Show',
-        'notes' => 'nullable|string|max:1000',
-    ]);
+    try {
+        // Validate request
+        $data = $request->validate([
+            'appointment_date' => 'nullable|date|after_or_equal:today',
+            'appointment_time' => 'nullable|date_format:H:i',
+            'status' => 'nullable|in:Scheduled,Confirmed,Completed,Cancelled,No-Show',
+            'notes' => 'nullable|string|max:1000',
+        ]);
+    } catch (ValidationException $e) {
+        return response()->json([
+            'message' => 'Validation failed.',
+            'errors' => $e->errors()
+        ], 422);
+    }
 
     // Check for doctor time conflict if date/time is being changed
     if (!empty($data['appointment_date']) && !empty($data['appointment_time'])) {
         $conflict = Appointment::where('doctor_id', $appointment->doctor_id)
             ->where('appointment_date', $data['appointment_date'])
             ->where('appointment_time', $data['appointment_time'])
-            ->where('id', '!=', $appointment->id) // Exclude current
+            ->where('id', '!=', $appointment->id)
             ->exists();
 
         if ($conflict) {
@@ -144,7 +151,7 @@ if ($validator->fails()) {
     return response()->json([
         'message' => 'Appointment updated successfully.',
         'data' => $appointment
-    ]);
+    ], 200);
 }
 
 

@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "24d63f28-f6c4-42c1-952c-4d2a2a718cf1",
+		"name": "healthcare-crm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13572507",
+		"_collection_link": "https://gold-robot-992981.postman.co/workspace/Team-Workspace~01555976-b990-4586-8016-604f7540f5a2/collection/13572507-24d63f28-f6c4-42c1-952c-4d2a2a718cf1?action=share&source=collection_link&creator=13572507"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"email\": \"admin@test.com\",\r\n     \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|U3pofYTpfIFVtISbmGet8bk8IcW664BI0ZwK3PAR8a865023",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all-patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Ashoke\",\r\n  \"last_name\": \"Majhi\",\r\n  \"date_of_birth\": \"1994-03-01\",\r\n  \"gender\": \"Male\",\r\n  \"phone_number\": \"7585957638\",\r\n  \"email\": \"ashok.majhi2@gmail.com\",\r\n  \"address\": \"123 Main Street\",\r\n  \"emergency_contact_name\": \"raju roy\",\r\n  \"emergency_contact_phone\": \"9876543211\",\r\n  \"insurance_details\": {\r\n    \"policy_number\": \"POL123456\",\r\n    \"provider_name\": \"XYZ Health\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/c609eeab-beba-4cf7-b7f3-0821df1bf9ae",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"c609eeab-beba-4cf7-b7f3-0821df1bf9ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Ashoke\",\r\n  \"last_name\": \"Majhi\",\r\n  \"date_of_birth\": \"1994-03-01\",\r\n  \"gender\": \"Male\",\r\n  \"phone_number\": \"7585957638\",\r\n  \"email\": \"ashok.majhi2@gmail.com\",\r\n  \"address\": \"123 Main Street\",\r\n  \"emergency_contact_name\": \"raju roy\",\r\n  \"emergency_contact_phone\": \"9876543211\",\r\n  \"insurance_details\": {\r\n    \"policy_number\": \"POL123456\",\r\n    \"provider_name\": \"XYZ Health\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/c609eeab-beba-4cf7-b7f3-0821df1bf9ae",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"c609eeab-beba-4cf7-b7f3-0821df1bf9ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/c609eeab-beba-4cf7-b7f3-0821df1bf9ae",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"c609eeab-beba-4cf7-b7f3-0821df1bf9ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all-appointments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "set-appointments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patient_id\": 1,\r\n  \"doctor_id\": 1,\r\n  \"appointment_date\": \"2025-07-25\",\r\n  \"appointment_time\": \"10:30:00\",\r\n  \"notes\": \"Routine check-up\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-appointments-specic-patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments/patient/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments",
+						"patient",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-appointments-for-a-specic-doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments/doctor/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments",
+						"doctor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reschedule-update-appointments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"appointment_date\": \"2025-07-25\",\r\n  \"appointment_time\": \"20:30\",\r\n  \"notes\": \"Routine check-up\",\r\n  \"status\": \"Confirmed\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelled-appointments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/appointments/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"appointments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve-audit-history-for-a-specic-patient ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|bRNkxAobPoRNQDgrT0T0YVFzlcm3KQ5pvWw9C3bx40b2a2c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/1/audits",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						"audits"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
