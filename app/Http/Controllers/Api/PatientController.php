@@ -180,4 +180,20 @@ public function destroy($id)
             abort(403, 'Unauthorized');
         }
     }
+
+    public function audits($id){
+       
+         $user = Auth::user();
+
+        if (!$user->hasRole('Admin')) {
+            return response()->json(['error' => 'Forbidden'], 403);
+        }
+
+        $audits = PatientAudit::where('patient_id', $id)
+            ->with('user:id,name,email')
+            ->latest()
+            ->get();
+
+        return response()->json($audits);
+    }
 }
