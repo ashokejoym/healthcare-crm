@@ -218,3 +218,18 @@ Example
 http
 GET /api/patients/1/audits
 Authorization: Bearer your_token
+
+
+ .env Configuration for Azure
+
+APP_URL=https://app-name.azurewebsites.net
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://appname.azurewebsites.net
+
+DB_CONNECTION=mysql
+DB_HOST=mysql-server.mysql.database.azure.com
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=username@your-mysql-server
+DB_PASSWORD=password
